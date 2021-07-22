@@ -71,25 +71,23 @@ class _MyAppState extends State<MyApp> {
     }
     print(_text);
     
-    //Regular expression part
- // final regExp=RegExp(r'^([A-Z])([A-Z])(\s)([0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9])(\s)([A-Z])$');
- // final regExp1=RegExp(r'^([A-Z])([A-Z])\s([0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9])([A-Z])$');
- // final regExp2=RegExp(r'^([A-Z])([A-Z])([0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9])\s([A-Z])$');
- // final regExp3=RegExp(r'^([A-Z])([A-Z])([0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9])([A-Z])$');
- //    List<String> str = _text.split('\n');
- //    String serialNumber='';
- //    for (String temp in str) {
- //      final match = regExp.firstMatch(temp);
- //      final match1 = regExp1.firstMatch(temp);
- //      final match2 = regExp2.firstMatch(temp);
- //      final match3 = regExp3.firstMatch(temp);
- //      final everything = match.group(0);
- //      final everything1 = match1.group(0);
- //      final everything2 = match2.group(0);
- //      final everything3 = match3.group(0);
- //      serialNumber+=everything+"##"+everything1+"##"+everything2+"##"+everything3;
- //
- //    }
+   List<String> str=_text.split("\n");
+
+    final regExp=RegExp(r'^([A-Z])([A-Z])(\s)([0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9])(\s)([A-Z])$');
+    final regExp1=RegExp(r'^([A-Z])([A-Z])\s([0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9])([A-Z])$');
+    final regExp2=RegExp(r'^([A-Z])([A-Z])([0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9])\s([A-Z])$');
+    final regExp3=RegExp(r'^([A-Z])([A-Z])([0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9])([A-Z])$');
+    List<String>serials=new List<String>();
+    for(String s in str)
+    {
+      if(regExp.hasMatch(s)|| regExp1.hasMatch(s) ||regExp2.hasMatch(s)|| regExp3.hasMatch(s))
+        serials.add(s);
+    }
+    print (serials);
+
+    Navigator.of(context).pop();
+    Navigator.of(context)
+        .push(MaterialPageRoute(builder: (context) => Details(serials.first)));
 
     Navigator.of(context).pop();
     Navigator.of(context)
