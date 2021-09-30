@@ -71,19 +71,9 @@ class _MyAppState extends State<MyApp> {
     }
     print(_text);
     
-   List<String> str=_text.split("\n");
 
-    final regExp=RegExp(r'^([A-Z])([A-Z])(\s)([0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9])(\s)([A-Z])$');
-    final regExp1=RegExp(r'^([A-Z])([A-Z])\s([0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9])([A-Z])$');
-    final regExp2=RegExp(r'^([A-Z])([A-Z])([0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9])\s([A-Z])$');
-    final regExp3=RegExp(r'^([A-Z])([A-Z])([0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9])([A-Z])$');
+   
     List<String>serials=new List<String>();
-    for(String s in str)
-    {
-      if(regExp.hasMatch(s)|| regExp1.hasMatch(s) ||regExp2.hasMatch(s)|| regExp3.hasMatch(s))
-        serials.add(s);
-    }
-    print (serials);
 
     Navigator.of(context).pop();
     Navigator.of(context)
