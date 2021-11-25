@@ -72,16 +72,10 @@ class _MyAppState extends State<MyApp> {
     print(_text);
     
 
-   
-    List<String>serials=new List<String>();
-
-    Navigator.of(context).pop();
-    Navigator.of(context)
-        .push(MaterialPageRoute(builder: (context) => Details(serials.first)));
-
-    Navigator.of(context).pop();
     Navigator.of(context)
         .push(MaterialPageRoute(builder: (context) => Details(_text)));
+
+ 
   }
 
   Future getImage() async {
